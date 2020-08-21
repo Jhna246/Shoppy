@@ -1,0 +1,15 @@
+{% extends 'shoplist/base.html' %}
+{% block content %}
+
+<div id="jumbotron-special" class="text text-center row-fluid jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>Shopping List!</h1>
+        <p>Did you ever forget to buy something important when you went out for grocery shopping? If you did, this 
+            website is the perfect website for you! Instead of carrying around a piece of paper everywhere with you, 
+            you now have all the information you need on your phone!</p>
+            
+        <a role="button" class="btn btn-primary btn-lg" href="{% url 'usersignup' %}">Start</a>
+    </div>
+</div>
+
+{% endblock %}

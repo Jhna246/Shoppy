@@ -1,0 +1,52 @@
+{% extends 'shoplist/base.html' %}
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <h2>New Todo</h2>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="item">Item</label>
+                <input type="text" name="item" class="form-control" id="item" value="{{ shopitem.item }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
+            {% for i in item %}
+            {% if not i.datecompleted %}
+            <button type="button" class="btn btn-success" onclick="$('#complete').click()">Complete</button>
+            {% else %}
+            <button type="button" class="btn btn-warning" onclick="$('#incomplete').click()">Incomplete</button>
+            {% endif %}
+            {% endfor %}
+
+
+        </form>
+    </div>
+</div>
+
+<form style='display: none;' method="POST" action="{% url 'deleteitem' item_id=item_id things_id=shopitem.id %}">
+    {% csrf_token %}
+    <button id="delete" type="submit">Delete</button>
+</form>
+
+<form style='display: none;' method="POST" action="{% url 'completeitem' item_id=item_id things_id=shopitem.id %}">
+    {% csrf_token %}
+    <button id="complete" type="submit" class="mt-5">Complete</button>
+</form>
+
+<form style='display: none;' method="POST" action="{% url 'incompleteitem' item_id=item_id things_id=shopitem.id %}">
+    {% csrf_token %}
+    <button id="incomplete" type="submit" class="mt-5">Incomplete</button>
+</form>
+
+{% endblock %}

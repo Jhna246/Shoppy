@@ -1,0 +1,22 @@
+.jumbotron h1{
+    font-size:4em;
+}
+
+#jumbotron-special{
+    height: 100vh;
+    width: 300vh;
+}
+
+.jumbotron-fluid {
+    position: relative;
+    height: 40vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.row-fluid {
+    width: 200vh; 
+    display:table-cell; 
+    vertical-align: middle;
+}
