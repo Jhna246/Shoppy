@@ -20,15 +20,9 @@
                 <input type="text" name="item" class="form-control" id="item" value="{{ shopitem.item }}" required>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
-            {% for i in item %}
-            {% if not i.datecompleted %}
             <button type="button" class="btn btn-success" onclick="$('#complete').click()">Complete</button>
-            {% else %}
             <button type="button" class="btn btn-warning" onclick="$('#incomplete').click()">Incomplete</button>
-            {% endif %}
-            {% endfor %}
-
+            <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
 
         </form>
     </div>

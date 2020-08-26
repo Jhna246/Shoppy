@@ -17,7 +17,7 @@ def usersignup(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('home')
+                return redirect('currentshoplist')
 
             except IntegrityError:
                     return render(request, 'shoplist/usersignup.html', {'form':UserCreationForm(), 'error':'The username has already been taken'})
